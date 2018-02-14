@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+set repo [lindex $argv 0]
+set pw [lindex $argv 1]
+
+spawn git clone $repo
+
+expect "Password*"
+ 
+# And we send our password:
+send "$pw\r";
+ 
+interact
